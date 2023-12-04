@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ChatGPT Chats Filter",
-  "version": "1.3",
+  "version": "1.3.0",
   "description": "Easily filter and manage your ChatGPT conversations with this intuitive Chrome extension.",
   "permissions": [],
   "icons": {
