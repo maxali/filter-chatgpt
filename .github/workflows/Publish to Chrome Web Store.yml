@@ -18,8 +18,8 @@ jobs:
       with:
         node-version: '14'
 
-    - name: Install dependencies
-      run: npm ci
+    # - name: Install dependencies
+    #   run: npm ci
 
     - name: Increment version
       run: node scripts/increment-version.js
@@ -27,11 +27,11 @@ jobs:
     - name: Zip the code directory
       run: zip -r code.zip code/
 
-    - name: Publish to Chrome Web Store
-      uses: GoogleChromeLabs/chrome-webstore-upload-cli@v1
+    - name: Upload & release to Chrome Web Store
+      uses: mnao305/chrome-extension-upload@v4.0.1
       with:
+        file-path: code.zip
         extension-id: ${{ secrets.EXTENSION_ID }}
         client-id: ${{ secrets.CLIENT_ID }}
         client-secret: ${{ secrets.CLIENT_SECRET }}
         refresh-token: ${{ secrets.REFRESH_TOKEN }}
-        asset: './code.zip'
